@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     tools {
-        // Define the tools to use
         maven 'maven'
         jdk 'OpenJDK 11'
     }
@@ -10,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                git branch: 'master', credentialsId: 'git-credentials', url: 'https://github.com/Muskankhoiya/springbootapp.git'
             }
         }
 
@@ -28,21 +27,6 @@ pipeline {
                     bat 'mvn test'
                 }
             }
-        }
-
-        stage('Deploy') {
-            steps {
-                // Here you can add deployment steps if needed
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build and test successful!'
-        }
-        failure {
-            echo 'Build or test failed!'
         }
     }
 }
