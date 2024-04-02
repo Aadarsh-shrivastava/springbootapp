@@ -17,7 +17,7 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 WORKDIR /usr/src/app
 
 # Copy the packaged JAR file from the build stage.
-COPY --from=build /usr/src/app/target/*.jar app.jar
+COPY --from=build /usr/src/app/target/springbootapp-0.0.1-SNAPSHOT.jar /usr/src/app/springbootapp-0.0.1-SNAPSHOT.jar
 
 # Specify the command to run on container start.
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","/usr/src/app/springbootapp-0.0.1-SNAPSHOT.jar"]
