@@ -1,3 +1,5 @@
+
+
 # Use the official Maven image to create a build artifact.
 FROM maven:3.8.3-jdk-11-slim AS build
 
@@ -17,7 +19,7 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 WORKDIR /usr/src/app
 
 # Copy the packaged JAR file from the build stage.
-COPY --from=build /usr/src/app/target/*.jar app.jar
+COPY --from=build /usr/src/app/target/*.jar springbootapp-0.0.1-SNAPSHOT.jar
 
 # Specify the command to run on container start.
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","springbootapp-0.0.1-SNAPSHOT.jar"]
