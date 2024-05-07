@@ -1,5 +1,5 @@
 # Use the official Maven image to create a build artifact.
-FROM maven:3.8.3-jdk-11-slim AS build
+FROM maven:3.9.6-jdk-17-slim AS build
 
 # Set the working directory in the container
 WORKDIR /app
@@ -11,7 +11,7 @@ COPY . .
 RUN mvn clean package
 
 # Use the AdoptOpenJDK base image for runtime
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM adoptopenjdk/openjdk17:alpine-jre
 
 # Set the working directory in the container
 WORKDIR /app
