@@ -7,7 +7,7 @@ pipeline {
  stages {
  stage('Checkout') {
  steps {
- git branch: 'master', credentialsId: 'devgitpass', url: 'https://github.com/Aadarsh-shrivastava/devops/tree/master/DevOps'
+ git branch: 'master', credentialsId: 'devgitpass', url: 'https://github.com/Aadarsh-shrivastava/devops'
  }
  }
  stage('Build') {
