@@ -1,32 +1,23 @@
 pipeline {
-    agent any
+ agent any
+ tools {
+ maven 'Maven'
+ jdk 'Java 17'
+ }
+ stages {
+ stage('Checkout') {
+ steps {
+ git branch: 'master', credentialsId: 'devgitpass', url: 'https://github.com/Aadarsh-shrivastava/devops/tree/master/DevOps'
+ }
+ }
+ stage('Build') {
+ steps {
+ script {
+ bat 'mvn clean package'
+ }
+ }
 
-    tools {
-        maven 'maven'
-        jdk 'OpenJDK 11'
-    }
+ }
 
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'master', credentialsId: 'git-credentials', url: 'https://github.com/Muskankhoiya/springbootapp.git'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                script {
-                    bat 'mvn clean package'
-                }
-            }
-        }
-
-        stage('Test') {
-            steps {
-                script {
-                    bat 'mvn test'
-                }
-            }
-        }
-    }
+ }
 }
