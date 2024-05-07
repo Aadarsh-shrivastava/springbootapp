@@ -7,7 +7,7 @@ pipeline {
  stages {
  stage('Checkout') {
  steps {
- git branch: 'master', credentialsId: 'devgitpass', url: 'https://github.com/Aadarsh-shrivastava/devops'
+ git branch: 'master', credentialsId: 'devgitpass', url: 'https://github.com/Aadarsh-shrivastava/springbootapp'
  }
  }
  stage('Build') {
