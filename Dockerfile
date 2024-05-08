@@ -1,5 +1,5 @@
 # Use the official Maven image to create a build artifact.
-FROM maven:3.9.6-jdk-17-slim AS build
+FROM maven:3.9.6-sapmachine-17 AS build
 
 # Set the working directory in the container
 WORKDIR /app
