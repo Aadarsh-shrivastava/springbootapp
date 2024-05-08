@@ -11,7 +11,7 @@ COPY . .
 RUN mvn clean package
 
 # Use the AdoptOpenJDK base image for runtime
-FROM openjdk17:alpine
+FROM adoptopenjdk/openjdk11:alpine-slim
 
 # Set the working directory in the container
 WORKDIR /app
